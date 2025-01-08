@@ -4,6 +4,7 @@ using gamesApi.Helpers;
 using gamesApi.Interfaces;
 using gamesApi.Models;
 using gamesApi.Repositories;
+using gamesApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ builder.Services.AddControllers();
 
 //Adds a method repository(GameRepository)
 builder.Services.AddScoped<IGameRepository, GameRepository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x=>{
     x.Password.RequireDigit = true;
