@@ -22,18 +22,17 @@ namespace gamesApi.Services
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthSettings.PrivateKey));
         }
-
+        //Create a token for the user with the main info
         public string CreateToken(AppUser user)
         {
-
             var claims = new List<Claim>{
-                
                 new (JwtRegisteredClaimNames.Email, user.Email),
                 new (JwtRegisteredClaimNames.GivenName, user.UserName),
             };
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
             
+            //Declares the token characteristics
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
@@ -44,10 +43,10 @@ namespace gamesApi.Services
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
+            //Creates the token using the handler and the descriptor
             var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            return tokenHandler.WriteToken(token);
             
+            return tokenHandler.WriteToken(token);
         }
     }
 }

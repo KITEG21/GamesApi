@@ -8,6 +8,7 @@ using gamesApi.Dtos;
 using gamesApi.Helpers;
 using gamesApi.Interfaces;
 using gamesApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,7 @@ namespace gamesApi.Controllers
         }
 
         [HttpGet("GetGames")]
+        [Authorize]
         public async Task<IActionResult> GetAllGames([FromQuery]QueryObject query)
         {
             if(!ModelState.IsValid)

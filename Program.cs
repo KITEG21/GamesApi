@@ -13,9 +13,37 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+#region Services
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+
+
+// Add Swagger services for the JWT authorization
+builder.Services.AddSwaggerGen(x=>{
+    x.SwaggerDoc("v1", new OpenApiInfo { Title = "Games API", Version = "v1" });    
+    x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please enter a valid token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "Bearer"
+    });
+    x.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+               Reference = new OpenApiReference
+              {
+                  Id = "Bearer",
+                  Type = ReferenceType.SecurityScheme
+              }
+            }, new List<string>()
+        }
+    });
+});
 
 //Adds a method repository(GameRepository)
 builder.Services.AddScoped<IGameRepository, GameRepository>();
@@ -28,7 +56,6 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(x=>{
     x.Password.RequireNonAlphanumeric = true;
     x.Password.RequireUppercase = true;
 }).AddEntityFrameworkStores<AppDBContext>();
-
 
 builder.Services.AddAuthentication(x =>
     {
@@ -54,7 +81,7 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddDbContext<AppDBContext>(x => 
     x.UseNpgsql(builder.Configuration.GetConnectionString("Default Connection")));
-
+#endregion
 
 var app = builder.Build();
 
@@ -65,12 +92,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 
 app.Run();
 

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace gamesApi.Repositories
 {
+    //Repository for Game model's CRUD methods
     public class GameRepository : IGameRepository
     {
         private readonly AppDBContext _context;

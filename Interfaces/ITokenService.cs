@@ -7,7 +7,8 @@ using gamesApi.Models;
 namespace gamesApi.Interfaces
 {
     public interface ITokenService
-    {
+    {   
+        // Interface for TokenService
         public abstract string CreateToken(AppUser user);
     }
 }
