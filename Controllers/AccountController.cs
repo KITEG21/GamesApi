@@ -88,6 +88,9 @@ namespace gamesApi.Controllers
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
             
             if(!result.Succeeded) return Unauthorized("Invalid password");
+
+            if(user.UserName == null || user.Email == null) return BadRequest("Invalid user name or email");
+
             else
             {
                 return Ok( new NewUserDto

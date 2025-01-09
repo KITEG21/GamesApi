@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\Backend\\API\\gamesApi\\gamesApi.csproj": {}
+    "D:\\SEBASTIAN\\github-contribute\\GamesApi\\gamesApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\Backend\\API\\gamesApi\\gamesApi.csproj": {
+    "D:\\SEBASTIAN\\github-contribute\\GamesApi\\gamesApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Backend\\API\\gamesApi\\gamesApi.csproj",
+        "projectUniqueName": "D:\\SEBASTIAN\\github-contribute\\GamesApi\\gamesApi.csproj",
         "projectName": "gamesApi",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\Backend\\API\\gamesApi\\gamesApi.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\Backend\\API\\gamesApi\\obj\\",
+        "projectPath": "D:\\SEBASTIAN\\github-contribute\\GamesApi\\gamesApi.csproj",
+        "packagesPath": "C:\\Users\\sebas_8\\.nuget\\packages\\",
+        "outputPath": "D:\\SEBASTIAN\\github-contribute\\GamesApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sebas_8\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -103,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
