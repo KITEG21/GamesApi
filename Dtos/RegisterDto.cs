@@ -17,7 +17,5 @@ namespace gamesApi.Dtos
         
         [Required]
         public string Password { get; set; } = string.Empty;    
-         
-        
     }
 }

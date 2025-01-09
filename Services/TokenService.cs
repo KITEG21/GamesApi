@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using gamesApi.Helpers;
 using gamesApi.Interfaces;
 using gamesApi.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.IdentityModel.Tokens;
 
 namespace gamesApi.Services
@@ -25,6 +26,7 @@ namespace gamesApi.Services
         //Create a token for the user with the main info
         public string CreateToken(AppUser user)
         {
+            
             var claims = new List<Claim>{
                 new (JwtRegisteredClaimNames.Email, user.Email),
                 new (JwtRegisteredClaimNames.GivenName, user.UserName),
