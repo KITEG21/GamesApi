@@ -16,6 +16,5 @@ namespace gamesApi.Interfaces
         public Task<Game> InsertGameAsync(GameDto gameInsert);
         public Task<Game?> UpdateGameAsync(int id, GameDto gameUpdate);
         public Task<Game?> DeleteGameAsync(int id);
-
     }
 }
